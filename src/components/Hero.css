@@ -1,0 +1,405 @@
+/* src/components/Hero.css - ENHANCED WITH SAFARI SUPPORT */
+.hero {
+  min-height: 100vh;
+  background: var(--gradient);
+  display: flex;
+  align-items: center;
+  padding: 80px 0 200px 0;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient);
+  z-index: -1;
+}
+
+/* Animated background elements */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
+  z-index: -1;
+}
+
+.hero-container {
+  max-width: none; /* hero should also be full width */
+  margin: 0;
+  padding: 0 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr minmax(300px, 520px);
+  gap: 4rem;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+}
+
+.hero-text {
+  color: white;
+  max-width: 100%;
+  text-align: left;
+}
+
+.hero-greeting {
+  font-size: clamp(1.4rem, 2.4vw, 2.2rem);
+  margin-bottom: 0.5rem;
+  color: rgba(255,255,255,0.95);
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.hero-name {
+  font-size: clamp(2.4rem, 6.6vw, 4.4rem);
+  margin-bottom: 0.5rem;
+  line-height: 1.1;
+  font-weight: 800;
+  color: white;
+  text-shadow: 0 2px 0 rgba(0,0,0,0.08);
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.hero-title {
+  font-size: clamp(1rem, 1.6vw, 1.4rem);
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+  font-weight: 400;
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+  opacity: 0.9;
+  line-height: 1.7;
+  max-width: 500px;
+  animation: fadeInUp 0.8s ease-out 0.6s both;
+}
+
+.hero-name .highlight {
+  color: #FDE047;
+  -webkit-text-stroke: 0.3px rgba(0,0,0,0.05);
+  position: relative;
+}
+
+.hero-name .highlight::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #FDE047;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: underlineExpand 1s ease-out 1s forwards;
+}
+
+@keyframes underlineExpand {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  animation: fadeInUp 0.8s ease-out 0.8s both;
+}
+
+.cta-button {
+  padding: 0.72rem 1.6rem; /* tighter, modern compact sizing */
+  border-radius: 9999px; /* pill-style buttons */
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-button.primary {
+  /* bright, elevated pill */
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(250,250,250,0.9));
+  color: var(--primary-color);
+  border: 1px solid rgba(255,255,255,0.6);
+  box-shadow: 0 8px 28px rgba(8,10,25,0.25);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  transform: translateZ(0);
+}
+
+.cta-button.primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: left 0.5s;
+}
+
+.cta-button.primary:hover::before {
+  left: 100%;
+}
+
+.cta-button.primary:hover {
+  transform: translateY(-4px) scale(1.006);
+  box-shadow: 0 20px 60px rgba(8,10,25,0.28);
+  /* stronger hover visual: vivid gradient and white text for emphasis (blue/black theme) */
+  background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
+  color: white;
+  border-color: rgba(255,255,255,0.08);
+}
+
+/* keyboard focus state */
+.cta-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 5px rgba(253, 224, 71, 0.12), 0 10px 30px rgba(8,10,25,0.16);
+}
+
+/* icon motion */
+.cta-button svg {
+  transition: transform 220ms cubic-bezier(.2,.9,.2,1);
+}
+.cta-button.primary:hover svg {
+  transform: translateX(6px);
+}
+
+.cta-button.secondary {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.16);
+  padding: 0.66rem 1.4rem; /* slightly tighter */
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.cta-button.secondary:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.32);
+  transform: translateY(-3px) scale(1.003);
+  /* give the secondary something a little more lively */
+  color: #fff;
+}
+.cta-button.secondary:hover svg {
+  transform: translateX(3px);
+}
+
+/* slightly different active press state */
+.cta-button:active {
+  transform: translateY(-1px) scale(0.997);
+}
+
+.hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  animation: fadeInRight 1s ease-out 0.5s both;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.image-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-photo {
+  width: clamp(220px, 30vw, 460px);
+  height: clamp(220px, 30vw, 460px);
+  border-radius: 50%;
+  object-fit: cover;
+  border: 10px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 
+    0 30px 60px rgba(0, 0, 0, 0.22), 
+    0 0 0 8px rgba(255,255,255,0.06) inset,
+    0 0 50px rgba(255,255,255,0.1);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.image-container::before {
+  content: '';
+  position: absolute;
+  inset: -22px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  pointer-events: none;
+  filter: blur(2px);
+  z-index: 0;
+}
+
+.experience-badge {
+  position: absolute;
+  bottom: 30px;
+  right: -10px;
+  background: var(--gradient);
+  padding: 1.2rem;
+  border-radius: 20px;
+  color: white;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  animation: pulse 2s ease-in-out infinite;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.badge-content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.badge-number {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.badge-text {
+  font-size: 0.8rem;
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  text-align: center;
+  animation: bounce 2s infinite;
+}
+
+.scroll-text {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.8;
+}
+
+.scroll-arrow {
+  font-size: 1.5rem;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0) translateX(-50%);
+  }
+  40% {
+    transform: translateY(-10px) translateX(-50%);
+  }
+  60% {
+    transform: translateY(-5px) translateX(-50%);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+  
+  .hero-text {
+    text-align: center;
+    order: 2;
+  }
+  
+  .hero-image {
+    order: 1;
+  }
+  
+  .hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .hero-buttons {
+    justify-content: center;
+  }
+}
+
+/* Large desktop enhancements */
+@media (min-width: 1440px) {
+  .hero-container {
+    max-width: 1300px;
+  }
+  
+  .hero-content {
+    grid-template-columns: 1fr minmax(350px, 580px);
+    gap: 5rem;
+  }
+}
+

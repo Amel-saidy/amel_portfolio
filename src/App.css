@@ -1,0 +1,296 @@
+:root {
+  /* Light Theme - Purple + White */
+  /* Light Theme - Blue & Black accents */
+  --primary-color: #2563EB; /* blue-600 */
+  --primary-dark: #1E40AF; /* blue-800 */
+  --primary-light: #60A5FA; /* blue-300 */
+  --background: #FFFFFF;
+  --surface: #F8FAFC;
+  --text-primary: #0B1220; /* near-black for clear contrast */
+  --text-secondary: #6B7280;
+  --text-muted: #9CA3AF;
+  --border: #E5E7EB;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --gradient: linear-gradient(135deg, #2563EB 0%, #0b0b0b 100%);
+}
+
+.dark-mode {
+  /* Dark Theme - Purple + Black */
+  /* Dark Theme - Blue on black */
+  --primary-color: #60A5FA; /* lighter blue */
+  --primary-dark: #2563EB; /* deeper blue */
+  --primary-light: #A5D8FF;
+  --background: #000000;
+  --surface: #060606;
+  --text-primary: #F8FAFC;
+  --text-secondary: #D1D5DB;
+  --text-muted: #9CA3AF;
+  --border: #374151;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  --gradient: linear-gradient(135deg, #60A5FA 0%, #000000 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  line-height: 1.6;
+  background-color: var(--background);
+  color: var(--text-primary);
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.App {
+  text-align: left;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Remove the extra br tags from App.js - use CSS instead */
+.App br {
+  display: none;
+}
+
+/* Common section styles */
+section, .container, .wrapper {
+  padding: 5rem 0;
+  width: 100%;
+  max-width: 100vw;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  /* Make site content full width (no centered sidebar) */
+  max-width: none; /* allow full width */
+  margin: 0; /* don't center to a fixed width */
+  padding: 0 2rem; /* keep horizontal padding so content doesn't touch edges */
+  width: 100%;
+}
+
+/* Common heading styles */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+  line-height: 1.2;
+  max-width: 100%;
+}
+
+h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  background: linear-gradient(135deg, #2563EB 0%, #0b0b0b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Common button styles (paired for older variants) */
+.cta-button,
+.btn,
+.project-link {
+  padding: 12px 28px;
+  border: none;
+  border-radius: 9999px; /* pill */
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 220ms cubic-bezier(.2,.9,.2,1);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  letter-spacing: 0.1px;
+  max-width: 100%;
+}
+
+/* Primary (filled) */
+.cta-button.primary,
+.btn.primary,
+.project-link.primary {
+  background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
+  color: white;
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 12px 36px rgba(37,99,235,0.18);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.cta-button.primary:hover,
+.btn.primary:hover,
+.project-link.primary:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 28px 60px rgba(37,99,235,0.28);
+}
+
+/* Secondary (outline / ghost) */
+.cta-button.secondary,
+.project-link.secondary,
+.btn.secondary {
+  background: transparent;
+  color: var(--primary-color);
+  border: 1px solid rgba(37,99,235,0.22);
+}
+
+.cta-button.secondary:hover,
+.project-link.secondary:hover,
+.btn.secondary:hover {
+  background: rgba(37,99,235,0.9);
+  color: white;
+  transform: translateY(-2px) scale(1.003);
+}
+
+/* keyboard focus state for all CTA elements */
+.cta-button:focus-visible,
+.btn:focus-visible,
+.project-link:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 6px rgba(37,99,235,0.12), 0 10px 30px rgba(0,0,0,0.18);
+}
+
+/* ============================================= */
+/* LARGE DESKTOP FIXES - ELIMINATE WHITE SPACE  */
+/* ============================================= */
+
+/* Large desktop screens (1440px and above) */
+@media (min-width: 1440px) {
+  .container,
+  .hero-container,
+  .about-container,
+  .projects-container,
+  .experience-container,
+  .education-container,
+  .contact-inner,
+  .skills-container {
+    max-width: 1300px;
+  }
+  
+  section {
+    padding: 6rem 0;
+  }
+  
+  h2 {
+    font-size: 3rem;
+    margin-bottom: 3.5rem;
+  }
+  
+  /* Scale up buttons for large screens */
+  .cta-button {
+    padding: 14px 32px;
+    font-size: 1.1rem;
+  }
+}
+
+/* Extra large desktop screens (1920px and above - Full HD) */
+@media (min-width: 1920px) {
+  .container,
+  .hero-container,
+  .about-container,
+  .projects-container,
+  .experience-container,
+  .education-container,
+  .contact-inner,
+  .skills-container {
+    max-width: 1500px;
+  }
+  
+  section {
+    padding: 7rem 0;
+  }
+  
+  h2 {
+    font-size: 3.2rem;
+    margin-bottom: 4rem;
+  }
+  
+  /* Even larger buttons */
+  .cta-button {
+    padding: 16px 36px;
+    font-size: 1.2rem;
+  }
+  
+  /* Slightly larger base font for better readability */
+  body {
+    font-size: 1.05rem;
+  }
+}
+
+/* Ultra-wide screens (2560px and above - 2K/4K monitors) */
+@media (min-width: 2560px) {
+  .container,
+  .hero-container,
+  .about-container,
+  .projects-container,
+  .experience-container,
+  .education-container,
+  .contact-inner,
+  .skills-container {
+    max-width: 1800px;
+  }
+  
+  section {
+    padding: 8rem 0;
+  }
+  
+  h2 {
+    font-size: 3.5rem;
+    margin-bottom: 4.5rem;
+  }
+  
+  .cta-button {
+    padding: 18px 40px;
+    font-size: 1.3rem;
+  }
+  
+  body {
+    font-size: 1.1rem;
+  }
+}
+
+/* ============================================= */
+/* RESPONSIVE DESIGN (Mobile & Tablet) */
+/* ============================================= */
+
+@media (max-width: 768px) {
+  section {
+    padding: 3rem 0;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 2rem 0;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+  }
+}
