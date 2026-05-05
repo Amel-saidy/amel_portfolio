@@ -66,6 +66,9 @@ const Navbar = () => {
             <a href="#projects" className="nav-link" onClick={closeMobileMenu}>Projects</a>
           </li>
           <li className="nav-item">
+            <a href="#documents" className="nav-link" onClick={closeMobileMenu}>Documents</a>
+          </li>
+          <li className="nav-item">
             <a href="#experience" className="nav-link" onClick={closeMobileMenu}>Experience</a>
           </li>
           <li className="nav-item">

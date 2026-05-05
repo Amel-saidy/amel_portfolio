@@ -7,19 +7,35 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: "Email Spam Detection",
-      description: "A Python + Flask application that classifies incoming emails as spam or not using machine learning (scikit-learn). Includes pre-processing, model training, and a lightweight REST API for integration.",
-      tech: ["Python", "Flask", "scikit-learn", "pandas", "sklearn"],
-      github: "#",
-      live: "#"
+      title: "Wudy App",
+      description: "A dynamic web application designed to streamline workflow and productivity. Built with modern technologies for an intuitive user experience.",
+      tech: ["React", "JavaScript", "CSS"],
+      github: "https://github.com/Amel-saidy/wudy_app",
+      live: "https://wudy-app.vercel.app/"
     },
     {
       id: 2,
+      title: "Email Spam Detection",
+      description: "A Python + Flask application that classifies incoming emails as spam or not using machine learning (scikit-learn). Includes pre-processing, model training, and a lightweight REST API for integration.",
+      tech: ["Python", "Flask", "scikit-learn", "pandas", "sklearn"],
+      github: "https://github.com/Amel-saidy/email-spam-detection",
+      live: "https://email-spam-detection-u7p4.onrender.com"
+    },
+    {
+      id: 3,
       title: "Attendance Tracking System",
       description: "An internship project built with React and Node.js — real-time attendance tracking, user roles, secure APIs, and a small admin dashboard to manage records.",
       tech: ["React", "Node.js", "Express", "MySQL"],
-      github: "#",
-      live: "#"
+      github: "https://github.com/Amel-saidy/attendance-tracker",
+      live: "https://attendance-tracker-nu-dun.vercel.app/"
+    },
+    {
+      id: 4,
+      title: "Filed Data Collection",
+      description: "A comprehensive data collection system with admin and agent functionality. The admin dashboard enables creation and management of agents, while agents collect and submit field data efficiently.",
+      tech: ["React", "Node.js", "Express", "MongoDB"],
+      github: "https://github.com/Amel-saidy/Data-Collection",
+      live: "https://data-collection-beryl.vercel.app"
     }
   ];
 
