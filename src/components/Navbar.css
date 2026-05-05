@@ -35,9 +35,10 @@
 
 .nav-logo img {
   height: 44px;
-  width: auto;
+  width: 44px;
   display: block;
-  border-radius: 6px;
+  border-radius: 50%;
+  object-fit: cover;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
