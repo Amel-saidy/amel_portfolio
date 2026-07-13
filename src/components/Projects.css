@@ -76,6 +76,24 @@
 .project-link svg { transition: transform 220ms cubic-bezier(.2,.9,.2,1); }
 .project-link.primary:hover svg { transform: translateX(4px); }
 
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.tech-tag {
+  background: var(--border);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
 .project-card:hover {
   transform: translateY(-5px);
 }

@@ -1,6 +1,7 @@
 // src/components/Contact.js
 import React from 'react';
 import { useForm, ValidationError } from '@formspree/react';
+import { FaPhone } from 'react-icons/fa';
 import './Contact.css';
 
 const Contact = () => {
@@ -36,6 +37,18 @@ const Contact = () => {
           Interested in working together or have a question? Send a message — 
           I typically reply within 48 hours.
         </p>
+
+        <div className="contact-info-bar">
+          <a href="tel:+2205364182" className="contact-info-item">
+            <FaPhone className="contact-info-icon" />
+            <span>+220 5364182</span>
+          </a>
+          <span className="contact-info-divider">|</span>
+          <a href="tel:+2206509441" className="contact-info-item">
+            <FaPhone className="contact-info-icon" />
+            <span>+220 6509441</span>
+          </a>
+        </div>
 
         <form className="contact-form" onSubmit={handleSubmit}>
           <div className="field">

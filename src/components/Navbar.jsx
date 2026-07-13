@@ -4,16 +4,21 @@ import './Navbar.css';
 import logo from '../assets/logo.png';
 
 const Navbar = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  // Read saved preference from localStorage on first render (lazy initialiser)
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    return localStorage.getItem('theme') === 'dark';
+  });
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    // Apply dark mode class to body
+    // Apply dark mode class to body and persist the preference
     if (isDarkMode) {
       document.body.classList.add('dark-mode');
+      localStorage.setItem('theme', 'dark');
     } else {
       document.body.classList.remove('dark-mode');
+      localStorage.setItem('theme', 'light');
     }
   }, [isDarkMode]);
 

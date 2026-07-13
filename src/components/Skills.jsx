@@ -1,6 +1,6 @@
 // src/components/Skills.js - ENHANCED WITH MODERN FEATURES
 import React from 'react';
-import { FaReact, FaNodeJs, FaJs, FaPython, FaGit, FaCode, FaDatabase, FaTools } from 'react-icons/fa';
+import { FaReact, FaNodeJs, FaJs, FaPython, FaGit, FaCode, FaDatabase, FaTools, FaJava, FaMicrosoft, FaFileExcel, FaCog } from 'react-icons/fa';
 import { SiMongodb, SiMysql } from 'react-icons/si';
 import './Skills.css';
 
@@ -20,6 +20,7 @@ const Skills = () => {
       skills: [
         { name: "Node.js", icon: <FaNodeJs />, level: 85 },
         { name: "Python", icon: <FaPython />, level: 70 },
+        { name: "Java", icon: <FaJava />, level: 65 },
       ]
     },
     {
@@ -29,6 +30,15 @@ const Skills = () => {
         { name: "MongoDB", icon: <SiMongodb />, level: 75 },
         { name: "MySQL", icon: <SiMysql />, level: 72 },
         { name: "Git", icon: <FaGit />, level: 85 },
+      ]
+    },
+    {
+      title: "Microsoft Tools",
+      icon: <FaMicrosoft className="category-icon" />,
+      skills: [
+        { name: "Excel", icon: <FaFileExcel />, level: 80 },
+        { name: "Power Automate", icon: <FaCog />, level: 70 },
+        { name: "SharePoint", icon: <FaMicrosoft />, level: 68 },
       ]
     }
   ];
@@ -83,7 +93,7 @@ const Skills = () => {
             <span className="overview-label">Years Experience</span>
           </div>
           <div className="overview-item">
-            <span className="overview-number">7+</span>
+            <span className="overview-number">11+</span>
             <span className="overview-label">Technologies</span>
           </div>
           <div className="overview-item">

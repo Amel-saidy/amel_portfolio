@@ -2,7 +2,7 @@
 import React from 'react';
 import './Hero.css';
 import heroPhoto from '../assets/portfolio-image.jpeg';
-import { FaArrowRight, FaDownload, FaChevronDown } from 'react-icons/fa';
+import { FaArrowRight, FaEnvelope, FaChevronDown } from 'react-icons/fa';
 
 const Hero = () => {
   const scrollToProjects = () => {
@@ -34,7 +34,7 @@ const Hero = () => {
               </button>
               <button className="cta-button secondary" onClick={scrollToContact}>
                 Contact Me
-                <FaDownload />
+                <FaEnvelope />
               </button>
             </div>
           </div>
